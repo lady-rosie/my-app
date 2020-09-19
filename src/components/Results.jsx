@@ -1,19 +1,19 @@
 import React from 'react';
 
-const Results = ({values, price, reco, socialMedia}) => {
+const Results = ({}) => {
 
     return( 
         <div>
-            { price &&
+            {/* { price && */}
                 <div className="results">
-                    <h2> {values.stockSymbol} </h2>
-                    <p> {price}$ </p>
-                    <h2> {values.socialMedia} </h2>
-                    <p> {socialMedia} posts </p>
+                    {/* <h2> {values.stockSymbol} </h2> */}
+                    {/* <p> {price}$ </p> */}
+                    {/* <h2> {values.socialMedia} </h2> */}
+                    {/* <p> {socialMedia} posts </p> */}
                     <h3> Recommended action </h3>
-                    <p> {reco} </p>
+                    {/* <p> {reco} </p> */}
                 </div>
-             }
+             {/* } */}
         </div>
 
     );
