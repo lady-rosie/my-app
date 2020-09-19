@@ -29,6 +29,7 @@ function App() {
     <div>
       <Header />
       <Form onSubmit={onSubmit} />
+      {/* <Results values={data} reco={recommendation} price={stockPrice} socialMedia={socialMediaCount} /> */}
       {/* <Table word=/> */}
     </div>
   );
