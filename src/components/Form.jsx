@@ -4,7 +4,6 @@ import {useForm} from "react-hook-form";
 const Form = ({onSubmit}) => {
     const { register, handleSubmit } = useForm();
     
-
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
         <label for="stocks">Stock Symbol</label>
