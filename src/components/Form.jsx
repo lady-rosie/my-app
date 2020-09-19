@@ -7,7 +7,7 @@ const Form = ({onSubmit}) => {
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
         <label for="stocks">Stock Symbol</label>
-        <input type="text" id="stocks" name="stockSymbol" ref={register} />
+        <input type="text" id="stocks" name="stockSymbol" ref={register} required />
         
         <label for="socials">Social media:</label>
         <select id="socials" name="socialMedia" ref={register} >
@@ -18,7 +18,7 @@ const Form = ({onSubmit}) => {
         </select>
         
         <label for="dates">Date:</label>
-        <input type="date" id="dates" name="dates" ref={register} ></input>
+        <input type="date" id="dates" name="dates" ref={register} required ></input>
 
         <input type="submit" value="Submit"/>
 
