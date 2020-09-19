@@ -1,18 +1,17 @@
 import React from 'react';
+import {useForm} from "react-hook-form";
 
 const Form = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(event.values);
-    };
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
 
     return(
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={handleSubmit(onSubmit)}>
         <label for="stocks">Stock Symbol</label>
-        <input type="text" id="stocks" name="stocks"/>
+        <input type="text" id="stocks" name="stockSymbol" ref={register} />
         
         <label for="socials">Social media:</label>
-        <select id="socials" name="socials">
+        <select id="socials" name="socialMedia" ref={register} >
             <option value="facebook">Facebook</option>
             <option value="twitter">Twitter</option>
             <option value="instagram">Instagram</option>
@@ -20,7 +19,7 @@ const Form = () => {
         </select>
         
         <label for="dates">Date:</label>
-        <input type="date" id="dates" name="dates"></input>
+        <input type="date" id="dates" name="dates" ref={register} ></input>
 
         <input type="submit" value="Submit"/>
 
