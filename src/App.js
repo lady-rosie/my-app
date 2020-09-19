@@ -5,15 +5,17 @@ import { stockPriceGenerator, socialMediaCountGenerator, recommendationAlgorithm
 // Components
 import Header from './components/Header';
 import Form from './components/Form';
+import Results from './components/Results';
 
 function App() {
   
   const[stockPrice, setStockPrice] = useState(null)
   const[socialMediaCount, setSocialMediaCount] = useState(null)
   const[recommendation, setRecommendation] = useState(null)
+  const[data, setData] = useState(null)
   
-
   const onSubmit = data => {
+    setData(data);
     setStockPrice(stockPriceGenerator(data.stockSymbol, data.date));
     setSocialMediaCount(socialMediaCountGenerator(data.socialMedia, data.stockSymbol));
   };
@@ -29,7 +31,7 @@ function App() {
     <div>
       <Header />
       <Form onSubmit={onSubmit} />
-      {/* <Results values={data} reco={recommendation} price={stockPrice} socialMedia={socialMediaCount} /> */}
+      <Results  values={data} reco={recommendation} price={stockPrice} socialMedia={socialMediaCount} />
       {/* <Table word=/> */}
     </div>
   );
