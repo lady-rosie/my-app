@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import moment from "moment";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 
 //import mock data
 import { stockPriceGenerator } from "./mock_data/backEndData";
@@ -13,7 +15,11 @@ import SocialMediasInfos from "./components/SocialMediasInfos";
 
 
 function App() {
+  // fontawesome library
+  library.add(fab)
+
   const [stockPrice, setStockPrice] = useState(null);
+  const [stockRisk, setStockRisk] = useState(null);
   
   const socialMediaObj = {
     socialMedias:    [
@@ -24,8 +30,11 @@ function App() {
     totalCount: 0
   }
   
+  
   const onSubmit = (data) => {
+    console.log(data);
     setStockPrice(stockPriceGenerator(data.stockSymbol, socialMediaObj, moment()));
+    setStockRisk(Number(data.risk));
   };
 
 
@@ -37,7 +46,7 @@ function App() {
       <SocialMediasInfos socialMediaList={socialMediaObj}/>
       <TimeWindow />
       </div>
-      <Results stockPrices={stockPrice} socialMediaList={socialMediaObj}  />
+      <Results stockPrices={stockPrice} socialMediaList={socialMediaObj} risk={stockRisk}  />
     </div>
   );
 }

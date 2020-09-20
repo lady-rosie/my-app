@@ -3,8 +3,9 @@ import {
   socialMediaCountGenerator,
   recommendationAlgorithm,
 } from "../mock_data/backEndData";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Results = ({ stockPrices, socialMediaList }) => {
+const Results = ({ stockPrices, socialMediaList, risk }) => {
   return (
     <div className="results">
       {stockPrices && (
@@ -25,14 +26,14 @@ const Results = ({ stockPrices, socialMediaList }) => {
                 socialMediaList
               ).socialMedias.map((socialMedia) => (
                 <td>
-                  {socialMedia.name}: {socialMedia.count}
+                  <FontAwesomeIcon icon={['fab', socialMedia.icon]}/> {socialMedia.count}
                 </td>
               ))}
 
-              <td>
+              <td className="reco">
                 {recommendationAlgorithm(
                   stockPrice.price,
-                  socialMediaList.totalCount
+                  socialMediaList.totalCount, risk
                 )}
               </td>
             </tr>

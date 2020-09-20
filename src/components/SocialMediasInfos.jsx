@@ -1,7 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+
 const SocialMediasInfos = ({socialMediaList}) =>{
+  
    
     return(
         <div className="social-media-infos">
@@ -11,7 +13,7 @@ const SocialMediasInfos = ({socialMediaList}) =>{
             <ul>
                 {socialMediaList.socialMedias.map((socialMedia) => (
                     <li>
-                        <FontAwesomeIcon icon='twitter' />
+                        <FontAwesomeIcon icon={["fab", socialMedia.icon]} />
                         {socialMedia.name}
                     </li>
                     ))

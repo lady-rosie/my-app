@@ -37,15 +37,13 @@ export const stockPriceGenerator = (stockSymbol, socialMedias, date) => {
 };
 
 // Recommendations based on social media count and stock price
-export const recommendationAlgorithm = (stockPrice, socialCount) => {
+export const recommendationAlgorithm = (stockPrice, socialCount, risk) => {
  
   let stockPriceInteger = parseInt(stockPrice);
 
-  console.log(stockPriceInteger / socialCount);
-
-  if ((stockPriceInteger / socialCount) < 0.6) {
+  if ((stockPriceInteger / socialCount) < (risk ? (risk*0.6) : 0.6)) {
     return "Sell";
-  } else if ((stockPriceInteger / socialCount) > 0.9) {
+  } else if ((stockPriceInteger / socialCount) > (risk ? (risk*0.9) : 0.9)) {
     return "Buy";
   } else {
     return "Hold...";
