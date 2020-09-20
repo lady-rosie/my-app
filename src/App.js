@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import moment from "moment";
 
 //import mock data
-import {
-  stockPriceGenerator,
-  socialMediaCountGenerator,
-  recommendationAlgorithm,
-} from "./mock_data/backEndData";
+import { stockPriceGenerator } from "./mock_data/backEndData";
 
 // Components
 import Header from "./components/Header";
@@ -21,24 +17,16 @@ function App() {
     socialMedias:    [
       { name: "Twitter", count: 0 },
       { name: "Facebook", count: 0 },
-      { name: "Instagram", count: 0 },
+      { name: "LinkedIn", count: 0 },
     ],
     totalCount: 0
   }
  );
-  // const [recommendation, setRecommendation] = useState(null);
-  
   
   const onSubmit = (data) => {
     setStockPrice(stockPriceGenerator(data.stockSymbol, socialMediaObj, moment()));
   };
 
-
-  
-  // in a conditionalrecommendationAlgorithm(stockPrice, socialMedia)
-   
-
-  // look up moment.js - useState / useEffect
 
   return (
     <div>

@@ -6,7 +6,7 @@ export const socialMediaCountGenerator = (stockSymbol, socialMediaObj) => {
 
   if (socialMediaObj) {
     updatedSocialMedia = socialMediaObj.socialMedias.map((socialMedia) => {
-      socialMedia.count = Math.random() * 100;
+      socialMedia.count = (Math.random() * 100).toFixed(2);
     });
 
     socialMediaObj.totalCount = socialMediaObj.socialMedias.reduce(
