@@ -1,0 +1,17 @@
+@import 'variables.scss';
+
+.time-window{
+    background-color: $white;
+    box-shadow: 1px 2px 3px $lightgrey;
+    border-radius: 4px;
+    padding: 8px 8px;
+    h4{
+        margin:0px;
+        color: $teal;
+    }
+    p{
+        margin: 3px;
+        font-family: $body-font;
+        font-weight: 300;
+    }
+}

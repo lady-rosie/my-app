@@ -8,6 +8,7 @@ import { stockPriceGenerator } from "./mock_data/backEndData";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import Results from "./components/Results";
+import TimeWindow from "./components/TimeWindow";
 
 
 function App() {
@@ -31,7 +32,10 @@ function App() {
   return (
     <div>
       <Header />
+      <div className="infos">
       <Form onSubmit={onSubmit} />
+      <TimeWindow />
+      </div>
       <Results stockPrices={stockPrice} />
     </div>
   );

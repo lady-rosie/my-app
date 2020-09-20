@@ -28,7 +28,7 @@ export const stockPriceGenerator = (stockSymbol, socialMedias, date) => {
 
   while (moment(now).isBefore(dateEnd)) {
     resultsArr.push({
-      date: moment(now).format("YYYY MM DD"),
+      date: moment(now).format("MM DD YYYY"),
       price: (Math.random() * 100).toFixed(2),
       stockSymbol: stockSymbol,
       socialMediasCount: socialMediaCountGenerator(stockSymbol, socialMedias),
