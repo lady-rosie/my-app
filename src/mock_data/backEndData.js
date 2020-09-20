@@ -40,9 +40,9 @@ export const stockPriceGenerator = (stockSymbol, socialMedias, date) => {
 
 // Recommendations based on social media count and stock price
 export const recommendationAlgorithm = (stockPrice, socialMediaObj) => {
-  if (stockPrice / socialMediaObj.totalCount > 1.25) {
+  if (stockPrice / socialMediaObj.totalCount > 1.2) {
     return "Sell";
-  } else if (stockPrice / socialMediaObj.totalCount < 0.8) {
+  } else if (stockPrice / socialMediaObj.totalCount < 0.6) {
     return "Buy";
   } else {
     return "Hold...";

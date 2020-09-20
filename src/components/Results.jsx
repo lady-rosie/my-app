@@ -1,19 +1,32 @@
 import React from 'react';
+import { recommendationAlgorithm } from "../mock_data/backEndData";
 
-const Results = ({}) => {
+const Results = ({ stockPrices }) => {
 
     return( 
         <div>
-            {/* { price && */}
+            { stockPrices && 
                 <div className="results">
-                    {/* <h2> {values.stockSymbol} </h2> */}
-                    {/* <p> {price}$ </p> */}
-                    {/* <h2> {values.socialMedia} </h2> */}
-                    {/* <p> {socialMedia} posts </p> */}
-                    <h3> Recommended action </h3>
-                    {/* <p> {reco} </p> */}
+
+                    { stockPrices.map( (stockPrice) => (
+                     <div className="result">
+                    <p>Date: {stockPrice.date}</p>
+                    <p>Stock Price: {stockPrice.price}</p>
+
+                    {stockPrice.socialMediasCount.socialMedias.map((socialMedia)=> (
+
+                    <p>{socialMedia.name}: {socialMedia.count}</p>
+
+                    ))}
+
+                    <p> Social media total count: {stockPrice.socialMediasCount.totalCount} </p>
+                    <p>Action: {recommendationAlgorithm(stockPrice.price, stockPrice.socialMediasCount.totalCount )}</p>
+                    </div>
+                    )
+                    )}
+
                 </div>
-             {/* } */}
+            }
         </div>
 
     );

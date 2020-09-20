@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 
+//import mock data
 import {
   stockPriceGenerator,
   socialMediaCountGenerator,
   recommendationAlgorithm,
 } from "./mock_data/backEndData";
+
 // Components
 import Header from "./components/Header";
 import Form from "./components/Form";
 import Results from "./components/Results";
+
 
 function App() {
   const [stockPrice, setStockPrice] = useState(null);
@@ -28,7 +31,6 @@ function App() {
   
   const onSubmit = (data) => {
     setStockPrice(stockPriceGenerator(data.stockSymbol, socialMediaObj, moment()));
-   console.log(recommendationAlgorithm(stockPrice, socialMediaObj));
   };
 
 
@@ -42,13 +44,7 @@ function App() {
     <div>
       <Header />
       <Form onSubmit={onSubmit} />
-      <Results
-        // values={data}
-        // reco={recommendation}
-        price={stockPrice}
-        socialMedia={socialMediaObj}
-      />
-      {/* <Table word=/> */}
+      <Results stockPrices={stockPrice} />
     </div>
   );
 }
