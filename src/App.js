@@ -32,7 +32,6 @@ function App() {
   
   
   const onSubmit = (data) => {
-    console.log(data);
     setStockPrice(stockPriceGenerator(data.stockSymbol, socialMediaObj, moment()));
     setStockRisk(Number(data.risk));
   };

@@ -16,16 +16,16 @@ const Results = ({ stockPrices, socialMediaList, risk }) => {
             <th colspan="3">Social media posts count</th>
             <th>Recommended action</th>
           </tr>
-          {stockPrices.map((stockPrice) => (
-            <tr>
+          {stockPrices.map((stockPrice, index) => (
+            <tr key={index}>
               <td>{stockPrice.date}</td>
               <td>{stockPrice.price}$</td>
 
               {socialMediaCountGenerator(
                 stockPrice.stockSymbol,
                 socialMediaList
-              ).socialMedias.map((socialMedia) => (
-                <td>
+              ).socialMedias.map((socialMedia,index) => (
+                <td key={index}>
                   <FontAwesomeIcon icon={['fab', socialMedia.icon]}/> {socialMedia.count}
                 </td>
               ))}

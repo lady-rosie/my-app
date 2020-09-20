@@ -3,9 +3,9 @@ import moment from "moment";
 // Social media count for a stock symbol and a social platform
 export const socialMediaCountGenerator = (stockSymbol, socialMediaObj) => {
   if (socialMediaObj) {
-    socialMediaObj.socialMedias.map((socialMedia) => {
-      socialMedia.count = parseInt((Math.random() * 100).toFixed());
-    });
+    socialMediaObj.socialMedias.map((socialMedia) => (
+      socialMedia.count = parseInt((Math.random() * 100).toFixed())
+      ));
 
     socialMediaObj.totalCount = socialMediaObj.socialMedias.reduce(
       (prev, cur) => {
