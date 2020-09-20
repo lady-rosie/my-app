@@ -17,9 +17,9 @@ function App() {
   
   const socialMediaObj = {
     socialMedias:    [
-      { name: "Twitter", count: 0 },
-      { name: "Facebook", count: 0 },
-      { name: "LinkedIn", count: 0 },
+      { name: "Twitter", count: 0, icon: "twitter" },
+      { name: "Facebook", count: 0, icon: "facebook-square" },
+      { name: "LinkedIn", count: 0, icon: "linkedin"},
     ],
     totalCount: 0
   }
