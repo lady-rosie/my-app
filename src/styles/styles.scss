@@ -1,2 +1,11 @@
 @import 'header.scss';
 @import 'results.scss';
+@import 'variables.scss';
+
+body{
+    background-color: $offwhite;
+    h1, h2, h3, h4, h5, h6{
+        font-family: $header-font;
+        font-weight: 500;
+    }
+}
