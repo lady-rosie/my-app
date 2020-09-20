@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .results{
     display: flex;
     align-items: center;
@@ -5,13 +7,22 @@
     margin: 50px auto;
     width: 80%;
     padding: 30px;
-    background-color: white;
+    background-color:$white;
     border-radius: 8px;
     table{
         width: 96%;
         border-collapse: collapse;
         tr:nth-child(even) {
-            background-color: #dddddd;
+            background-color: $teal;
+            color: $white;
+          }
+          th{
+              font-family: $header-font;
+              font-weight: 500;
+          }
+          td{
+              font-family: $body-font;
+              font-weight: 400;
           }
         th, td{
             padding: 20px;

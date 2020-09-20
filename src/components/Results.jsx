@@ -15,7 +15,7 @@ const Results = ({ stockPrices }) => {
           {stockPrices.map((stockPrice) => (
               <tr>
                 <td>{stockPrice.date}</td>
-                <td>{stockPrice.price}</td>
+                <td>{stockPrice.price}$</td>
                 {stockPrice.socialMediasCount.socialMedias.map(
                   (socialMedia) => (
                     <td>
