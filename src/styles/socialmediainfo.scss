@@ -1,0 +1,30 @@
+@import 'variables.scss';
+
+.social-media-infos{
+    background-color: white;
+    box-shadow: 1px 2px 3px #E7EAEE;
+    border-radius: 4px;
+    padding: 8px 30px;
+
+    h4{
+        color: $teal;
+    }
+    h4, p{
+        margin: 2px;
+    }
+    p{
+        font-family: $body-font;
+        font-weight: 300;
+        color: $grey;
+    }
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0px;
+        color: $dark-purple;
+        font-family: $body-font;
+        font-size: 16px;
+    }
+
+}
