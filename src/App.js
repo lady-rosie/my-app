@@ -15,7 +15,7 @@ import SocialMediasInfos from "./components/SocialMediasInfos";
 function App() {
   const [stockPrice, setStockPrice] = useState(null);
   
-  const [socialMediaObj, setSocialMediaCount] = useState({
+  const socialMediaObj = {
     socialMedias:    [
       { name: "Twitter", count: 0 },
       { name: "Facebook", count: 0 },
@@ -23,7 +23,6 @@ function App() {
     ],
     totalCount: 0
   }
- );
   
   const onSubmit = (data) => {
     setStockPrice(stockPriceGenerator(data.stockSymbol, socialMediaObj, moment()));
@@ -38,7 +37,7 @@ function App() {
       <SocialMediasInfos socialMediaList={socialMediaObj}/>
       <TimeWindow />
       </div>
-      <Results stockPrices={stockPrice} />
+      <Results stockPrices={stockPrice} socialMediaList={socialMediaObj}  />
     </div>
   );
 }

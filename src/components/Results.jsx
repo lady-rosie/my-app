@@ -1,7 +1,10 @@
 import React from "react";
-import { recommendationAlgorithm } from "../mock_data/backEndData";
+import {
+  socialMediaCountGenerator,
+  recommendationAlgorithm,
+} from "../mock_data/backEndData";
 
-const Results = ({ stockPrices }) => {
+const Results = ({ stockPrices, socialMediaList }) => {
   return (
     <div className="results">
       {stockPrices && (
@@ -13,23 +16,26 @@ const Results = ({ stockPrices }) => {
             <th>Recommended action</th>
           </tr>
           {stockPrices.map((stockPrice) => (
-              <tr>
-                <td>{stockPrice.date}</td>
-                <td>{stockPrice.price}$</td>
-                {stockPrice.socialMediasCount.socialMedias.map(
-                  (socialMedia) => (
-                    <td>
-                      {socialMedia.name}: {socialMedia.count}
-                    </td>
-                  )
-                )}
+            <tr>
+              <td>{stockPrice.date}</td>
+              <td>{stockPrice.price}$</td>
+
+              {socialMediaCountGenerator(
+                stockPrice.stockSymbol,
+                socialMediaList
+              ).socialMedias.map((socialMedia) => (
                 <td>
-                  {recommendationAlgorithm(
-                    stockPrice.price,
-                    stockPrice.socialMediasCount.totalCount
-                  )}
+                  {socialMedia.name}: {socialMedia.count}
                 </td>
-              </tr>
+              ))}
+
+              <td>
+                {recommendationAlgorithm(
+                  stockPrice.price,
+                  socialMediaList.totalCount
+                )}
+              </td>
+            </tr>
           ))}
         </table>
       )}

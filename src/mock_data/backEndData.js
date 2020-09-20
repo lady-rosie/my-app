@@ -2,11 +2,9 @@ import moment from "moment";
 
 // Social media count for a stock symbol and a social platform
 export const socialMediaCountGenerator = (stockSymbol, socialMediaObj) => {
-  let updatedSocialMedia = {};
-
   if (socialMediaObj) {
-    updatedSocialMedia = socialMediaObj.socialMedias.map((socialMedia) => {
-      socialMedia.count = (Math.random() * 100).toFixed(2);
+    socialMediaObj.socialMedias.map((socialMedia) => {
+      socialMedia.count = parseInt((Math.random() * 100).toFixed());
     });
 
     socialMediaObj.totalCount = socialMediaObj.socialMedias.reduce(
@@ -15,9 +13,8 @@ export const socialMediaCountGenerator = (stockSymbol, socialMediaObj) => {
       },
       0
     );
-    return socialMediaObj;
   }
-  return updatedSocialMedia;
+  return socialMediaObj;
 };
 
 // Stock price generator for a stock symbol and date
@@ -31,18 +28,24 @@ export const stockPriceGenerator = (stockSymbol, socialMedias, date) => {
       date: moment(now).format("MM DD YYYY"),
       price: (Math.random() * 100).toFixed(2),
       stockSymbol: stockSymbol,
-      socialMediasCount: socialMediaCountGenerator(stockSymbol, socialMedias),
+      // socialMediasCount: socialMediaCountGenerator(stockSymbol, socialMedias),
     });
     now.add(1, "day");
   }
+
   return resultsArr;
 };
 
 // Recommendations based on social media count and stock price
-export const recommendationAlgorithm = (stockPrice, socialMediaObj) => {
-  if (stockPrice / socialMediaObj.totalCount > 1.2) {
+export const recommendationAlgorithm = (stockPrice, socialCount) => {
+ 
+  let stockPriceInteger = parseInt(stockPrice);
+
+  console.log(stockPriceInteger / socialCount);
+
+  if ((stockPriceInteger / socialCount) < 0.6) {
     return "Sell";
-  } else if (stockPrice / socialMediaObj.totalCount < 0.6) {
+  } else if ((stockPriceInteger / socialCount) > 0.9) {
     return "Buy";
   } else {
     return "Hold...";
